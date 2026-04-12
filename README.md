@@ -21,10 +21,19 @@ The system is designed as an **LLM-compatible analytical skill** capable of gene
 ---
 ## How skill can be used
 
-Skill can be added to claude.ai ,in setting-> cababilities-> add skills
-### NOTE:
-The current solution is integrated with GROQ using llama-3.3-70b-versatile Model ,hence if we upload the same skill on claude.ai it will execute the skill.md using anthropic over riding Groq
+1)Skill can be added to claude.ai ,in setting-> cababilities-> add skills
 
+### NOTE:
+
+
+* The current solution is integrated with GROQ using **llama-3.3-70b-versatile** Model ,hence if we upload the same skill on claude.ai it will execute the skill.md using anthropic over riding GROQ
+* need **GROQ_API_KEY** to be set in the enviorement as the client is called as-> Groq(api_key=os.environ.get("GROQ_API_KEY")) ,if not done the llm will not execute
+---
+2)Triggering python script
+
+```bash
+python scripts/main.py 
+```
 ---
 * **name: sec-risk-intelligence-skill**
 description: When to trigger this skill and what it does.
