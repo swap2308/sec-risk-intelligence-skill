@@ -6,6 +6,7 @@
 ## Overview
 
 The **SEC Financial Risk Intelligence Agent** is a **production-grade, end-to-end financial analytics system** that evaluates company health using structured financial data.
+"The goal was to build a skill that a credit analyst, risk officer, or portfolio manager could use without needing a data-science background — making explainability as important as accuracy."
 
 It combines:
 
@@ -18,6 +19,13 @@ It combines:
 The system is designed as an **LLM-compatible analytical skill** capable of generating **explainable, audit-ready financial risk reports**.
 
 ---
+## How skill can be used
+
+Skill can be added to claude.ai 
+
+---
+* **name: sec-risk-intelligence-skill**
+description: When to trigger this skill and what it does.
 
 ## Objective
 
@@ -69,7 +77,7 @@ sec-risk-intelligence/
 
 ## Dataset
 
-The dataset contains structured financial data derived from SEC filings.
+The dataset contains structured financial data derived from SEC filings.The default financial_table.csv was curated using data from SEC directly and only the require attributes were extracted for the solution
 
 ### Required Columns
 
