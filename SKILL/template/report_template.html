@@ -1,1 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Risk Intelligence Report</title>
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #eef2f7;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    /* ─── Header ─── */
+    .header {
+      background: linear-gradient(135deg, #1a56db 0%, #1e3a8a 100%);
+      color: #fff;
+      padding: 36px 40px 32px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .header-icon { font-size: 2.4rem; flex-shrink: 0; }
+    .header-text h1 { font-size: 1.65rem; font-weight: 700; letter-spacing: 0.02em; }
+    .header-text p  { font-size: 0.85rem; opacity: 0.75; margin-top: 4px; }
+
+    /* ─── Layout ─── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 28px 24px; }
+
+    /* ─── Status Banner ─── */
+    .status-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      border-left: 5px solid;
+    }
+    .status-banner.pass {
+      background: #d1fae5;
+      color: #065f46;
+      border-color: #10b981;
+    }
+    .status-banner.fail {
+      background: #fee2e2;
+      color: #991b1b;
+      border-color: #ef4444;
+    }
+    .status-banner.warn {
+      background: #fef9c3;
+      color: #92400e;
+      border-color: #f59e0b;
+    }
+
+    /* ─── Card ─── */
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 26px 28px;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 14px rgba(0,0,0,.07);
+    }
+    .card h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card h2::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: #e2e8f0;
+      border-radius: 2px;
+    }
+
+    /* ─── Score Grid ─── */
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+    }
+    .score-cell {
+      text-align: center;
+      padding: 18px 12px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      background: #f8fafc;
+      transition: border-color .2s;
+    }
+    .score-cell:hover { border-color: #93c5fd; }
+    .score-cell .val {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #1e40af;
+      line-height: 1.1;
+    }
+    .score-cell .val.risk-low    { color: #10b981; }
+    .score-cell .val.risk-mod    { color: #f59e0b; }
+    .score-cell .val.risk-high   { color: #ef4444; }
+    .score-cell .lbl {
+      font-size: 0.72rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 6px;
+    }
+
+    /* ─── Charts ─── */
+    .chart-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .chart-container img,
+    .chart-placeholder {
+      width: 100%;
+      border-radius: 10px;
+    }
+    /* Placeholder shown when no real chart image is embedded */
+    .chart-placeholder {
+      height: 200px;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      font-size: 0.85rem;
+      border: 2px dashed #cbd5e1;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .chart-placeholder .icon { font-size: 2rem; }
+
+    /* ─── Narrative Section ─── */
+    .narrative {
+      background: #f8fafc;
+      border: 1.5px solid #dbeafe;
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .narrative h3 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .narrative h3:first-child { margin-top: 0; }
+    .narrative p {
+      font-size: 0.92rem;
+      color: #374151;
+      line-height: 1.75;
+      margin-bottom: 10px;
+    }
+    .narrative ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 10px;
+    }
+    .narrative ul li {
+      font-size: 0.9rem;
+      color: #475569;
+      padding: 5px 0 5px 20px;
+      position: relative;
+    }
+    .narrative ul li::before {
+      content: '›';
+      position: absolute;
+      left: 4px;
+      color: #3b82f6;
+      font-weight: 700;
+    }
+
+    /* ─── Risk Pill ─── */
+    .risk-pill {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .risk-pill.low  { background: #d1fae5; color: #065f46; }
+    .risk-pill.mod  { background: #fef9c3; color: #92400e; }
+    .risk-pill.high { background: #fee2e2; color: #991b1b; }
+
+    /* ─── Footer ─── */
+    .report-footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #94a3b8;
+      padding: 20px 0 32px;
+    }
+
+    /* ─── Print ─── */
+    @media print {
+      body { background: #fff; }
+      .card { box-shadow: none; border: 1px solid #e2e8f0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════
+     HEADER
+     ════════════════════════════════ -->
+<div class="header">
+  <div class="header-icon">📊</div>
+  <div class="header-text">
+    <h1>Financial Risk Intelligence Report</h1>
+    <!-- Replace with dynamic date -->
+    <p>Generated: {{GENERATED_DATE}}</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ══════════════════════════════
+       STATUS BANNER
+       Classes: pass | warn | fail
+       ══════════════════════════════ -->
+  <div class="status-banner pass">
+    <!-- Replace icon and text to match status -->
+    ✅ WITHIN THRESHOLD — Threshold {{THRESHOLD_VALUE}}
+  </div>
+
+  <!-- ══════════════════════════════
+       EXECUTIVE SUMMARY SCORES
+       ══════════════════════════════ -->
+  <div class="card">
+    <h2>Executive Summary</h2>
+    <div class="score-grid">
+
+      <!-- Risk Score — add class risk-low / risk-mod / risk-high to .val -->
+      <div class="score-cell">
+        <div class="val risk-low">{{RISK_SCORE}}</div>
+        <div class="lbl">Risk Score</div>
+      </div>
+
+      <!-- Confidence -->
+      <div class="score-cell">
+        <div class="val">{{CONFIDENCE}}</div>
+        <div class="lbl">Confidence</div>
+      </div>
+
+      <!-- Decision -->
+      <div class="score-cell">
+        <div class="val">{{DECISION}}</div>
+        <div class="lbl">Decision</div>
+      </div>
+
+      <!-- M-Score -->
+      <div class="score-cell">
+        <div class="val">{{M_SCORE}}</div>
+        <div class="lbl">M-Score</div>
+      </div>
+
+      <!-- M-Risk Label -->
+      <div class="score-cell">
+        <div class="val" style="font-size:1rem;">{{M_RISK_LABEL}}</div>
+        <div class="lbl">M-Risk</div>
+      </div>
+
+      <!-- Add more score cells as needed -->
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       FINANCIAL TREND CHARTS
+       Replace <img> src with base64
+       or a real URL when available.
+       Placeholders shown by default.
+       ══════════════════════════════ -->
+  <div class="card">
+    <h2>Financial Trends</h2>
+    <div class="chart-container">
+
+      <!-- Chart 1: replace placeholder with <img src="data:image/png;base64,…"> -->
+      <div class="chart-placeholder">
+        <span class="icon">📈</span>
+        Chart 1 — Replace with embedded image
+      </div>
+
+      <!-- Chart 2 -->
+      <div class="chart-placeholder">
+        <span class="icon">📉</span>
+        Chart 2 — Replace with embedded image
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+       LLM NARRATIVE
+       ══════════════════════════════ -->
+  <div class="card">
+    <h2>Analysis Narrative</h2>
+    <div class="narrative">
+
+      <h3>🧭 Executive Summary</h3>
+      <p>
+        <!-- Replace with LLM-generated summary -->
+        {{COMPANY_NAME}} (CIK {{CIK}}) presents a <strong>{{RISK_LEVEL}}</strong> overall risk level
+        with a score of {{RISK_SCORE}}.  {{NARRATIVE_SUMMARY}}
+      </p>
+
+      <h3>🔑 Key Drivers</h3>
+      <ul>
+        <!-- Repeat <li> for each driver -->
+        <li>{{KEY_DRIVER_1}}</li>
+        <li>{{KEY_DRIVER_2}}</li>
+      </ul>
+
+      <h3>🚩 Red Flags</h3>
+      <ul>
+        <!-- Repeat <li> for each flag -->
+        <li>{{RED_FLAG_1}}</li>
+        <li>{{RED_FLAG_2}}</li>
+      </ul>
+
+      <h3>🔭 Risk Outlook</h3>
+      <p>
+        <!-- Use the .risk-pill span; set class to low / mod / high -->
+        <span class="risk-pill {{RISK_PILL_CLASS}}">{{RISK_OUTLOOK_LABEL}}</span>
+      </p>
+
+      <h3>💡 Recommendations</h3>
+      <ul>
+        <!-- Repeat <li> for each recommendation -->
+        <li>{{RECOMMENDATION_1}}</li>
+        <li>{{RECOMMENDATION_2}}</li>
+        <li>{{RECOMMENDATION_3}}</li>
+      </ul>
+
+    </div>
+  </div>
+
+</div><!-- /.container -->
+
+<div class="report-footer">
+  Financial Risk Intelligence Report · Generated automatically · For internal use only
+</div>
+
+</body>
+</html>
