@@ -43,33 +43,45 @@ To analyze company financial data and:
 ## Project Structure
 
 ```plaintext
-sec-risk-intelligence/
+SEC-RISK-INTELLIGENCE-SKILL/
 │
 ├── data/
-│   └── financial_table.csv
+│ ├── Data_Dictionary.xlsx
+│ ├── financial_table.csv
+│ ├── financial_bad_data.csv
+│ ├── financial_high_risk.csv
+│ ├── financial_manipulated_data.csv
+│
+├── documents/
+│ ├── Design_Walkthrough.pdf
+│ ├── Evaluation_report.docx
+│
+├── output/
+│ ├── run1_normal/
+│ ├── run2_stressed/
+│ ├── run3_bad_data/
+│ ├── run4_manipulated_data/
+│ ├── consolidated_analysis.json
+│ ├── consolidated_report.html
+│ ├── revenue.png
+│ ├── net_income.png
+│ ├── run_summary.json
+│ ├── Sample_output.json
+│ ├── validation.json
 │
 ├── scripts/
-│   ├── data_validation.py
-│   ├── analytics_model.py
-│   ├── insight_generation.py
-│   ├── llm_insights.py          
-│   ├── report_generator.py      
-│   ├── main.py
+│ ├── analytics_model.py
+│ ├── data_validation.py
+│ ├── insight_generator.py
+│ ├── llm_insights.py
+│ ├── report_generator.py
+│ ├── main.py
+│ ├── output/ (generated outputs)
 │
-├── outputs/
-│   ├── validation.json
-│   ├── model_output.json
-│   ├── consolidated_report.html              # Production dashboard report
-│   ├── consolidated_analysis.html
-│   ├── run_summary.html 
+├── prompts/
 │
-├── Documents/
-│   ├── Design_Document.docx
-│   ├── Execution Evidence.docx
-│   ├── Evaluation Report.docx
-│
-├── SKILL.md
 ├── REFERENCE.md
+├── SKILL.md
 └── README.md
 ```
 
