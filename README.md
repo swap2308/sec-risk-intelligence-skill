@@ -98,7 +98,7 @@ The dataset contains structured financial data derived from SEC filings.The defa
 
 ## Analytics Pipeline
 
-The system follows a **6-stage hybrid pipeline (deterministic + AI)**:
+The system follows a **7-stage hybrid pipeline (deterministic + AI)**:
 
 ---
 
