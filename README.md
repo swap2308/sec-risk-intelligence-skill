@@ -21,7 +21,7 @@ The system is designed as an **LLM-compatible analytical skill** capable of gene
 ---
 ## How skill can be used
 
-Skill can be added to claude.ai 
+Skill can be added to claude.ai ,in setting-> cababilities-> add skills
 
 ---
 * **name: sec-risk-intelligence-skill**
