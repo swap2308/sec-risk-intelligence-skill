@@ -35,7 +35,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCRIPTS_DIR = os.path.join(BASE_DIR, "scripts")
 OUTPUT_DIR = os.path.join(BASE_DIR, "output")
 
-client = Groq(api_key="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")
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 MODEL = "llama-3.3-70b-versatile"
 
 #trace = []
@@ -727,7 +727,7 @@ def main():
     if os.path.exists(consolidated_html_path):
         os.remove(consolidated_html_path)
 
-    client = Groq(api_key="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")
+    client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
     model = "llama-3.3-70b-versatile"
 
     summary = []
