@@ -1,0 +1,18 @@
+### Prompts fro 4 Scenario
+Healthy company — full data, successful analysis
+Prompt used:
+Analyze the financial risk for  CIK 3453 (MATSON, INC.)  using the default dataset. Use a lookback period of 4 quarters and flag anything above a risk threshold of 65. I need a full report with all charts and a business interpretation.
+
+High-risk company — distressed financials 
+Prompt used
+Run a risk assessment on CIK 58361(Lee Enterprises Inc.) using the default dataset. Use defaults for lookback (3 periods) and risk threshold (70). I want to understand why this company is flagged as risky and what the models agree on.
+
+Broken dataset — missing critical columns
+Prompt Used:
+Analyze financial risk for CIK 2267 using this dataset I'm uploading. Just give me the risk score.
+
+high-manipulation risk company
+Prompt used:
+Run a risk assessment on CIK 1844505(QT Imaging Holdings Inc.) using the default dataset. Use defaults for lookback (3 periods) and risk threshold (70). I want to understand if there is a posibility of numbers manipulation for this firm
+
+
