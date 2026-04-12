@@ -51,7 +51,9 @@ sec-risk-intelligence/
 ├── outputs/
 │   ├── validation.json
 │   ├── model_output.json
-│   ├── report.html              # Production dashboard report
+│   ├── consolidated_report.html              # Production dashboard report
+│   ├── consolidated_analysis.html
+│   ├── run_summary.html 
 │
 ├── Documents/
 │   ├── Design_Document.docx
