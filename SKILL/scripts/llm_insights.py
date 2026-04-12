@@ -3,7 +3,7 @@ import json
 import os
 import re
 
-client = Groq(api_key="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")
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 MODEL = "llama-3.3-70b-versatile"
 
 
