@@ -1,0 +1,379 @@
+{
+  "metadata": {
+    "created": "2026-04-12T16:07:25.685754",
+    "total_scenarios": 4,
+    "completed_scenarios": 3,
+    "failed_scenarios": 1,
+    "last_updated": "2026-04-12T16:07:36.810400"
+  },
+  "scenarios": [
+    {
+      "scenario_metadata": {
+        "run_id": "run1_normal",
+        "name": "Run 1: Clean Dataset",
+        "company": "CIK 3453 (MATSON, INC.)",
+        "data_source": "data/financial_table.csv",
+        "status": "success",
+        "started_at": "2026-04-12T16:07:16.107011",
+        "completed_at": "2026-04-12T16:07:25.685754"
+      },
+      "execution_trace": [
+        {
+          "timestamp": "2026-04-12T16:07:16.097403",
+          "message": "PIPELINE RUN: Run 1: Clean Dataset"
+        },
+        {
+          "timestamp": "2026-04-12T16:07:21.159489",
+          "type": "LLM_CALL",
+          "stage": "Stage 6: Financial Insight Generation",
+          "model": "llama-3.3-70b-versatile",
+          "prompt_preview": "\nYou are a forensic accounting expert.\n\nAnalyze the following financial risk output and generate structured insights for CIK 3453 (MATSON, INC.).\n\nINPUT DATA:\n{\n  \"financial_summary\": {\n    \"revenue\": NaN,\n    \"net_income\": 1879085.0,\n    \"profit_margin\": NaN,\n    \"debt_to_equity\": NaN\n  },\n  \"risk_summary\": {\n    \"risk_score\": 15,\n    \"risk_level\": \"Low Risk \\ud83d\\udfe2\",\n    \"confidence_score\": 100.0\n  },\n  \"m_score\": {\n    \"value\": 2.11,\n    \"risk_level\": \"Moderate Manipulation Risk \\ud83d\\u",
+          "response_preview": "```\n{\n  \"executive_summary\": \"Matson, Inc. (CIK 3453) appears to be financially stable with a low risk score of 15, despite some indicators of earnings quality concerns.\",\n  \"risk_analysis\": [\n    \"Low risk level with a high confidence score of 100.0\",\n    \"Moderate earnings manipulation risk as indicated by the M-score\"\n  ],\n  \"m_score_interpretation\": \"The M-score of 2.11 indicates a moderate manipulation risk, suggesting that the company's earnings may be subject to some level of manipulation, which could impact the accuracy of financial statements.\",\n  \"anomaly_analysis\": \"No significant anomalies were detected, but some indicators of earnings quality concerns were identified, which may require further investigation.\",\n  \"key_risks\": [\n    \"Earnings manipulation risk\",\n    \"Potential inaccuracy of financial statements\"\n  ],\n  \"recommendations\": [\n    \"Conduct further analysis to investigate earnings quality concerns\",\n    \"Monitor the company's financial statements for any signs of",
+          "token_usage": {
+            "completion_tokens": 235,
+            "prompt_tokens": 366,
+            "total_tokens": 601,
+            "completion_time": 0.627198867,
+            "completion_tokens_details": null,
+            "prompt_time": 0.019796567,
+            "prompt_tokens_details": null,
+            "queue_time": 0.054659146,
+            "total_time": 0.646995434
+          },
+          "latency": 1.1844336986541748
+        },
+        {
+          "timestamp": "2026-04-12T16:07:21.913765",
+          "type": "LLM_CALL",
+          "stage": "Stage 7: Executive Summary",
+          "model": "llama-3.3-70b-versatile",
+          "prompt_preview": "\nWrite a concise executive summary for a CFO.\n\nINPUT:\n{\n  \"executive_summary\": \"```\\n{\\n  \\\"executive_summary\\\": \\\"Matson, Inc. (CIK 3453) appears to be financially stable with a low risk score of 15, despite some indicators of earnings quality concerns.\\\",\\n  \\\"risk_analysis\\\": [\\n    \\\"Low risk level with a high confidence score of 100.0\\\",\\n    \\\"Moderate earnings manipulation risk as indicated by the M-score\\\"\\n  ],\\n  \\\"m_score_interpretation\\\": \\\"The M-score of 2.11 indicates a moderate ma",
+          "response_preview": "**Executive Summary for CFO: Matson, Inc. (CIK 3453)**\n\nMatson, Inc. (CIK 3453) presents a low overall risk level with a score of 15, indicating financial stability. However, our analysis reveals moderate earnings manipulation risk, as evidenced by an M-score of 2.11, suggesting potential inaccuracy in financial statements. Key drivers of this risk include indicators of earnings quality concerns, which warrant further investigation.\n\nThe situation requires **moderate urgency**, as the potential for earnings manipulation could impact the accuracy of financial statements and, subsequently, investment decisions.\n\nTo mitigate these risks, we recommend the following **actions**:\n\n1. Conduct further analysis to investigate earnings quality concerns.\n2. Monitor the company's financial statements for signs of manipulation.\n3. Verify the company's financial stability using additional metrics and ratios.\n\nBy taking these steps, we can ensure a more comprehensive understanding of Matson, Inc.'s f",
+          "token_usage": {
+            "completion_tokens": 205,
+            "prompt_tokens": 391,
+            "total_tokens": 596,
+            "completion_time": 0.526538453,
+            "completion_tokens_details": null,
+            "prompt_time": 0.01988071,
+            "prompt_tokens_details": null,
+            "queue_time": 0.157309312,
+            "total_time": 0.546419163
+          },
+          "latency": 0.749868631362915
+        },
+        {
+          "timestamp": "2026-04-12T16:07:25.683733",
+          "message": "PIPELINE COMPLETE"
+        }
+      ],
+      "llm_insights": {
+        "executive_summary": "```\n{\n  \"executive_summary\": \"Matson, Inc. (CIK 3453) appears to be financially stable with a low risk score of 15, despite some indicators of earnings quality concerns.\",\n  \"risk_analysis\": [\n    \"Low risk level with a high confidence score of 100.0\",\n    \"Moderate earnings manipulation risk as indicated by the M-score\"\n  ],\n  \"m_score_interpretation\": \"The M-score of 2.11 indicates a moderate manipulation risk, suggesting that the company's earnings may be subject to some level of manipulation, which could impact the accuracy of financial statements.\",\n  \"anomaly_analysis\": \"No significant anomalies were detected, but some indicators of earnings quality concerns were identified, which may require further investigation.\",\n  \"key_risks\": [\n    \"Earnings manipulation risk\",\n    \"Potential inaccuracy of financial statements\"\n  ],\n  \"recommendations\": [\n    \"Conduct further analysis to investigate earnings quality concerns\",\n    \"Monitor the company's financial statements for any signs of manipulation\",\n    \"Consider verifying the company's financial stability through additional metrics and ratios\"\n  ]\n}\n```",
+        "risk_analysis": [],
+        "m_score_interpretation": "",
+        "anomaly_analysis": "",
+        "key_risks": [],
+        "recommendations": []
+      },
+      "llm_summary": "**Executive Summary for CFO: Matson, Inc. (CIK 3453)**\n\nMatson, Inc. (CIK 3453) presents a low overall risk level with a score of 15, indicating financial stability. However, our analysis reveals moderate earnings manipulation risk, as evidenced by an M-score of 2.11, suggesting potential inaccuracy in financial statements. Key drivers of this risk include indicators of earnings quality concerns, which warrant further investigation.\n\nThe situation requires **moderate urgency**, as the potential for earnings manipulation could impact the accuracy of financial statements and, subsequently, investment decisions.\n\nTo mitigate these risks, we recommend the following **actions**:\n\n1. Conduct further analysis to investigate earnings quality concerns.\n2. Monitor the company's financial statements for signs of manipulation.\n3. Verify the company's financial stability using additional metrics and ratios.\n\nBy taking these steps, we can ensure a more comprehensive understanding of Matson, Inc.'s financial position and make informed decisions to protect our interests.",
+      "Intermediate_output": "**Executive Summary for CFO: Matson, Inc. (CIK 3453)**\n\nMatson, Inc. (CIK 3453) presents a low overall risk level with a score of 15, indicating financial stability. However, our analysis reveals moderate earnings manipulation risk, as evidenced by an M-score of 2.11, suggesting potential inaccuracy in financial statements. Key drivers of this risk include indicators of earnings quality concerns, which warrant further investigation.\n\nThe situation requires **moderate urgency**, as the potential for earnings manipulation could impact the accuracy of financial statements and, subsequently, investment decisions.\n\nTo mitigate these risks, we recommend the following **actions**:\n\n1. Conduct further analysis to investigate earnings quality concerns.\n2. Monitor the company's financial statements for signs of manipulation.\n3. Verify the company's financial stability using additional metrics and ratios.\n\nBy taking these steps, we can ensure a more comprehensive understanding of Matson, Inc.'s financial position and make informed decisions to protect our interests.",
+      "base_insights": {
+        "financial_summary": {
+          "revenue": null,
+          "net_income": 1879085.0,
+          "profit_margin": null,
+          "debt_to_equity": null
+        },
+        "risk_summary": {
+          "risk_score": 15,
+          "risk_level": "Low Risk \ud83d\udfe2",
+          "confidence_score": 100.0
+        },
+        "m_score": {
+          "value": 2.11,
+          "risk_level": "Moderate Manipulation Risk \ud83d\udfe1"
+        },
+        "key_drivers": [
+          "Moderate earnings manipulation risk"
+        ],
+        "anomaly": "No significant anomalies detected",
+        "interpretation": [
+          "Some indicators of earnings quality concerns"
+        ],
+        "recommendations": [
+          "Company appears financially stable"
+        ]
+      },
+      "validation": {
+        "agreement": true,
+        "stability_score": 1.0,
+        "anomaly_strength": 0.0,
+        "confidence_score": 100.0,
+        "rule_band": "low",
+        "anomaly_band": "low",
+        "decision": "Stable",
+        "m_score_band": "medium",
+        "m_score_signal": 2.1
+      }
+    },
+    {
+      "scenario_metadata": {
+        "run_id": "run2_stressed",
+        "name": "Run 2: High Risk Scenario",
+        "company": "CIK 58361 (Lee Enterprises Inc.)",
+        "data_source": "data/financial_high_risk.csv",
+        "status": "success",
+        "started_at": "2026-04-12T16:07:25.699050",
+        "completed_at": "2026-04-12T16:07:31.098796"
+      },
+      "execution_trace": [
+        {
+          "timestamp": "2026-04-12T16:07:25.690915",
+          "message": "PIPELINE RUN: Run 2: High Risk Scenario"
+        },
+        {
+          "timestamp": "2026-04-12T16:07:28.246274",
+          "type": "LLM_CALL",
+          "stage": "Stage 6: Financial Insight Generation",
+          "model": "llama-3.3-70b-versatile",
+          "prompt_preview": "\nYou are a forensic accounting expert.\n\nAnalyze the following financial risk output and generate structured insights for CIK 58361 (Lee Enterprises Inc.).\n\nINPUT DATA:\n{\n  \"financial_summary\": {\n    \"revenue\": NaN,\n    \"net_income\": -37593000.0,\n    \"profit_margin\": NaN,\n    \"debt_to_equity\": 18.811397958321994\n  },\n  \"risk_summary\": {\n    \"risk_score\": 80,\n    \"risk_level\": \"High Risk \\ud83d\\udd34\",\n    \"confidence_score\": 73.0\n  },\n  \"m_score\": {\n    \"value\": NaN,\n    \"risk_level\": \"Low Manipu",
+          "response_preview": "```\n{\n  \"executive_summary\": \"Lee Enterprises Inc. (CIK 58361) exhibits a high-risk financial profile, with a risk score of 80, primarily driven by very high leverage, negative operating cash flow, and liabilities exceeding assets, indicating a need for careful review of its financial stability before investment.\",\n  \"risk_analysis\": [\n    \"High debt-to-equity ratio of 18.81 indicates significant leverage\",\n    \"Negative net income of $37,593,000 suggests operational challenges\",\n    \"Key drivers such as high leverage, negative operating cash flow, and liabilities exceeding assets contribute to the high-risk profile\"\n  ],\n  \"m_score_interpretation\": \"The M-score, which measures the risk of earnings manipulation, is not available (NaN), but the risk level is classified as Low Manipulation Risk, suggesting that the company's earnings may not be significantly manipulated, although the absence of a specific M-score value limits the interpretation.\",\n  \"anomaly_analysis\": \"No significant an",
+          "token_usage": {
+            "completion_tokens": 348,
+            "prompt_tokens": 385,
+            "total_tokens": 733,
+            "completion_time": 1.228172181,
+            "completion_tokens_details": null,
+            "prompt_time": 0.050785034,
+            "prompt_tokens_details": null,
+            "queue_time": 0.055201105,
+            "total_time": 1.278957215
+          },
+          "latency": 1.375293493270874
+        },
+        {
+          "timestamp": "2026-04-12T16:07:29.054285",
+          "type": "LLM_CALL",
+          "stage": "Stage 7: Executive Summary",
+          "model": "llama-3.3-70b-versatile",
+          "prompt_preview": "\nWrite a concise executive summary for a CFO.\n\nINPUT:\n{\n  \"executive_summary\": \"```\\n{\\n  \\\"executive_summary\\\": \\\"Lee Enterprises Inc. (CIK 58361) exhibits a high-risk financial profile, with a risk score of 80, primarily driven by very high leverage, negative operating cash flow, and liabilities exceeding assets, indicating a need for careful review of its financial stability before investment.\\\",\\n  \\\"risk_analysis\\\": [\\n    \\\"High debt-to-equity ratio of 18.81 indicates significant leverage\\",
+          "response_preview": "**Executive Summary for CFO:**\n\nLee Enterprises Inc. (CIK 58361) poses a high-risk financial profile, with a risk score of 80. The primary drivers of this risk are very high leverage, negative operating cash flow, and liabilities exceeding assets. These factors indicate significant operational challenges and potential liquidity issues, which may lead to insolvency or bankruptcy risks.\n\n**Key Findings:**\n\n* High debt-to-equity ratio of 18.81, indicating significant leverage\n* Negative net income of $37,593,000, suggesting operational challenges\n* Liabilities exceeding assets, posing a risk to financial stability\n\n**Urgency and Required Actions:**\n\nGiven the high-risk profile, it is essential to conduct a thorough review of Lee Enterprises Inc.'s financial stability before investment. Recommended actions include:\n\n* Reviewing financial stability and leverage\n* Assessing the company's ability to generate positive operating cash flow\n* Evaluating the impact of liabilities exceeding assets ",
+          "token_usage": {
+            "completion_tokens": 256,
+            "prompt_tokens": 505,
+            "total_tokens": 761,
+            "completion_time": 0.660430576,
+            "completion_tokens_details": null,
+            "prompt_time": 0.049269586,
+            "prompt_tokens_details": null,
+            "queue_time": 0.054761912,
+            "total_time": 0.709700162
+          },
+          "latency": 0.8060019016265869
+        },
+        {
+          "timestamp": "2026-04-12T16:07:31.098796",
+          "message": "PIPELINE COMPLETE"
+        }
+      ],
+      "llm_insights": {
+        "executive_summary": "```\n{\n  \"executive_summary\": \"Lee Enterprises Inc. (CIK 58361) exhibits a high-risk financial profile, with a risk score of 80, primarily driven by very high leverage, negative operating cash flow, and liabilities exceeding assets, indicating a need for careful review of its financial stability before investment.\",\n  \"risk_analysis\": [\n    \"High debt-to-equity ratio of 18.81 indicates significant leverage\",\n    \"Negative net income of $37,593,000 suggests operational challenges\",\n    \"Key drivers such as high leverage, negative operating cash flow, and liabilities exceeding assets contribute to the high-risk profile\"\n  ],\n  \"m_score_interpretation\": \"The M-score, which measures the risk of earnings manipulation, is not available (NaN), but the risk level is classified as Low Manipulation Risk, suggesting that the company's earnings may not be significantly manipulated, although the absence of a specific M-score value limits the interpretation.\",\n  \"anomaly_analysis\": \"No significant anomalies were detected in the financial data, which may indicate that the company's financial reporting is relatively transparent, but it does not necessarily imply the absence of hidden risks or issues.\",\n  \"key_risks\": [\n    \"Very high leverage (D/E > 3) poses a significant risk to financial stability\",\n    \"Negative operating cash flow indicates potential liquidity issues\",\n    \"Liabilities exceeding assets may lead to insolvency or bankruptcy risks\"\n  ],\n  \"recommendations\": [\n    \"Review financial stability and leverage before investment\",\n    \"Assess the company's ability to generate positive operating cash flow\",\n    \"Evaluate the impact of liabilities exceeding assets on the company's solvency\"\n  ]\n}\n```",
+        "risk_analysis": [],
+        "m_score_interpretation": "",
+        "anomaly_analysis": "",
+        "key_risks": [],
+        "recommendations": []
+      },
+      "llm_summary": "**Executive Summary for CFO:**\n\nLee Enterprises Inc. (CIK 58361) poses a high-risk financial profile, with a risk score of 80. The primary drivers of this risk are very high leverage, negative operating cash flow, and liabilities exceeding assets. These factors indicate significant operational challenges and potential liquidity issues, which may lead to insolvency or bankruptcy risks.\n\n**Key Findings:**\n\n* High debt-to-equity ratio of 18.81, indicating significant leverage\n* Negative net income of $37,593,000, suggesting operational challenges\n* Liabilities exceeding assets, posing a risk to financial stability\n\n**Urgency and Required Actions:**\n\nGiven the high-risk profile, it is essential to conduct a thorough review of Lee Enterprises Inc.'s financial stability before investment. Recommended actions include:\n\n* Reviewing financial stability and leverage\n* Assessing the company's ability to generate positive operating cash flow\n* Evaluating the impact of liabilities exceeding assets on the company's solvency\n\n**Conclusion:**\n\nThe high-risk profile of Lee Enterprises Inc. necessitates careful consideration and immediate attention to mitigate potential risks. It is crucial to address the key drivers of risk and take proactive measures to ensure the company's financial stability and solvency.",
+      "Intermediate_output": "**Executive Summary for CFO:**\n\nLee Enterprises Inc. (CIK 58361) poses a high-risk financial profile, with a risk score of 80. The primary drivers of this risk are very high leverage, negative operating cash flow, and liabilities exceeding assets. These factors indicate significant operational challenges and potential liquidity issues, which may lead to insolvency or bankruptcy risks.\n\n**Key Findings:**\n\n* High debt-to-equity ratio of 18.81, indicating significant leverage\n* Negative net income of $37,593,000, suggesting operational challenges\n* Liabilities exceeding assets, posing a risk to financial stability\n\n**Urgency and Required Actions:**\n\nGiven the high-risk profile, it is essential to conduct a thorough review of Lee Enterprises Inc.'s financial stability before investment. Recommended actions include:\n\n* Reviewing financial stability and leverage\n* Assessing the company's ability to generate positive operating cash flow\n* Evaluating the impact of liabilities exceeding assets on the company's solvency\n\n**Conclusion:**\n\nThe high-risk profile of Lee Enterprises Inc. necessitates careful consideration and immediate attention to mitigate potential risks. It is crucial to address the key drivers of risk and take proactive measures to ensure the company's financial stability and solvency.",
+      "base_insights": {
+        "financial_summary": {
+          "revenue": null,
+          "net_income": -37593000.0,
+          "profit_margin": null,
+          "debt_to_equity": 18.811397958321994
+        },
+        "risk_summary": {
+          "risk_score": 80,
+          "risk_level": "High Risk \ud83d\udd34",
+          "confidence_score": 73.0
+        },
+        "m_score": {
+          "value": null,
+          "risk_level": "Low Manipulation Risk \ud83d\udfe2"
+        },
+        "key_drivers": [
+          "Very high leverage (D/E > 3)",
+          "Negative operating cash flow",
+          "Liabilities exceed assets"
+        ],
+        "anomaly": "No significant anomalies detected",
+        "interpretation": [
+          "Company is highly leveraged"
+        ],
+        "recommendations": [
+          "Review financial stability before investment"
+        ]
+      },
+      "validation": {
+        "agreement": false,
+        "stability_score": 1.0,
+        "anomaly_strength": 0.0,
+        "confidence_score": 73.0,
+        "rule_band": "high",
+        "anomaly_band": "low",
+        "decision": "Financial Risk",
+        "m_score_band": "low",
+        "m_score_signal": null
+      }
+    },
+    {
+      "scenario_metadata": {
+        "run_id": "run3_bad_data",
+        "name": "Run 3: Bad Data (Expected Failure)",
+        "company": "CIK 2267",
+        "data_source": "data/financial_bad_data.csv",
+        "status": "failed",
+        "error": "Validation failed: {'status': 'failed', 'errors': [\"Missing columns: ['revenue', 'assets']\"], 'warnings': ['High duplicate rows']}",
+        "started_at": "2026-04-12T16:07:31.138155",
+        "failed_at": "2026-04-12T16:07:31.173727"
+      },
+      "execution_trace": [
+        {
+          "timestamp": "2026-04-12T16:07:31.136144",
+          "message": "PIPELINE RUN: Run 3: Bad Data (Expected Failure)"
+        },
+        {
+          "timestamp": "2026-04-12T16:07:31.155705",
+          "message": "PIPELINE FAILED: Validation failed: {'status': 'failed', 'errors': [\"Missing columns: ['revenue', 'assets']\"], 'warnings': ['High duplicate rows']}"
+        },
+        {
+          "timestamp": "2026-04-12T16:07:31.156706",
+          "message": "Traceback (most recent call last):\n  File \"C:\\Users\\swapn\\OneDrive\\Desktop\\ISB\\Term_4\\Agentic_AI\\Assignement\\Final_Assignement\\sec-risk-intelligence-main (3)\\sec-risk-intelligence-main\\SKILL\\scripts\\main.py\", line 575, in run_scenario\n    raise Exception(f\"Validation failed: {validation_result}\")\nException: Validation failed: {'status': 'failed', 'errors': [\"Missing columns: ['revenue', 'assets']\"], 'warnings': ['High duplicate rows']}\n"
+        },
+        {
+          "timestamp": "2026-04-12T16:07:31.164808",
+          "message": "Failure report generated"
+        }
+      ],
+      "llm_insights": null,
+      "llm_summary": null,
+      "Intermediate_output": null,
+      "base_insights": null,
+      "validation": null
+    },
+    {
+      "scenario_metadata": {
+        "run_id": "run4_manipulated_data",
+        "name": "Run 4: Manipulated Data (Advanced Analysis)",
+        "company": "CIK 1844505(QT Imaging Holdings Inc.)",
+        "data_source": "data/financial_manipulated_data.csv",
+        "status": "success",
+        "started_at": "2026-04-12T16:07:31.214657",
+        "completed_at": "2026-04-12T16:07:36.787475"
+      },
+      "execution_trace": [
+        {
+          "timestamp": "2026-04-12T16:07:31.203612",
+          "message": "PIPELINE RUN: Run 4: Manipulated Data (Advanced Analysis)"
+        },
+        {
+          "timestamp": "2026-04-12T16:07:33.719916",
+          "type": "LLM_CALL",
+          "stage": "Stage 6: Financial Insight Generation",
+          "model": "llama-3.3-70b-versatile",
+          "prompt_preview": "\nYou are a forensic accounting expert.\n\nAnalyze the following financial risk output and generate structured insights for CIK 1844505(QT Imaging Holdings Inc.).\n\nINPUT DATA:\n{\n  \"financial_summary\": {\n    \"revenue\": 955970.0,\n    \"net_income\": -4557406.0,\n    \"profit_margin\": -4.767310689661007,\n    \"debt_to_equity\": NaN\n  },\n  \"risk_summary\": {\n    \"risk_score\": 90,\n    \"risk_level\": \"High Risk \\ud83d\\udd34\",\n    \"confidence_score\": 65.0\n  },\n  \"m_score\": {\n    \"value\": 16.12,\n    \"risk_level\": ",
+          "response_preview": "```json\n{\n  \"executive_summary\": \"QT Imaging Holdings Inc. (CIK 1844505) is operating at a significant financial loss with a high risk score, indicating potential instability and manipulation risks.\",\n  \"risk_analysis\": [\n    \"High revenue volatility poses a significant threat to the company's financial stability\",\n    \"Liabilities exceeding assets may lead to liquidity issues and increased debt burden\",\n    \"Negative profitability and high earnings manipulation risk (M-score) raise concerns about the company's ability to generate sustainable income\"\n  ],\n  \"m_score_interpretation\": \"The M-score of 16.12 indicates a high risk of earnings manipulation, suggesting that the company may be artificially inflating its financial performance, which could lead to a significant correction in the future.\",\n  \"anomaly_analysis\": \"No significant anomalies were detected, but the lack of anomalies does not necessarily imply a clean bill of health, as some issues may not be immediately apparent or may",
+          "token_usage": {
+            "completion_tokens": 299,
+            "prompt_tokens": 404,
+            "total_tokens": 703,
+            "completion_time": 0.888308034,
+            "completion_tokens_details": null,
+            "prompt_time": 0.041778274,
+            "prompt_tokens_details": null,
+            "queue_time": 0.157633696,
+            "total_time": 0.930086308
+          },
+          "latency": 1.1317970752716064
+        },
+        {
+          "timestamp": "2026-04-12T16:07:34.471703",
+          "type": "LLM_CALL",
+          "stage": "Stage 7: Executive Summary",
+          "model": "llama-3.3-70b-versatile",
+          "prompt_preview": "\nWrite a concise executive summary for a CFO.\n\nINPUT:\n{\n  \"executive_summary\": \"```json\\n{\\n  \\\"executive_summary\\\": \\\"QT Imaging Holdings Inc. (CIK 1844505) is operating at a significant financial loss with a high risk score, indicating potential instability and manipulation risks.\\\",\\n  \\\"risk_analysis\\\": [\\n    \\\"High revenue volatility poses a significant threat to the company's financial stability\\\",\\n    \\\"Liabilities exceeding assets may lead to liquidity issues and increased debt burden\\",
+          "response_preview": "**Executive Summary for CFO: QT Imaging Holdings Inc. (CIK 1844505)**\n\nQT Imaging Holdings Inc. is operating at a high-risk level, posing significant financial instability and potential manipulation risks. Key drivers of this risk include high revenue volatility, liabilities exceeding assets, and negative profitability with a high earnings manipulation risk (M-score of 16.12). These factors indicate a high likelihood of earnings manipulation, liquidity issues, and unsustainable income generation.\n\nThe situation requires urgent attention, as the company's financial stability and ability to generate cash flows are compromised. To mitigate potential losses, we recommend immediate action:\n\n1. **Conduct a thorough review** of the company's financial statements and accounting practices to identify potential red flags.\n2. **Assess the company's ability** to generate cash flows and meet its debt obligations.\n3. **Consider diversifying investments** to mitigate potential losses.\n\nPrompt attenti",
+          "token_usage": {
+            "completion_tokens": 205,
+            "prompt_tokens": 457,
+            "total_tokens": 662,
+            "completion_time": 0.527796133,
+            "completion_tokens_details": null,
+            "prompt_time": 0.023755176,
+            "prompt_tokens_details": null,
+            "queue_time": 0.160435405,
+            "total_time": 0.551551309
+          },
+          "latency": 0.751786470413208
+        },
+        {
+          "timestamp": "2026-04-12T16:07:36.786166",
+          "message": "PIPELINE COMPLETE"
+        }
+      ],
+      "llm_insights": {
+        "executive_summary": "```json\n{\n  \"executive_summary\": \"QT Imaging Holdings Inc. (CIK 1844505) is operating at a significant financial loss with a high risk score, indicating potential instability and manipulation risks.\",\n  \"risk_analysis\": [\n    \"High revenue volatility poses a significant threat to the company's financial stability\",\n    \"Liabilities exceeding assets may lead to liquidity issues and increased debt burden\",\n    \"Negative profitability and high earnings manipulation risk (M-score) raise concerns about the company's ability to generate sustainable income\"\n  ],\n  \"m_score_interpretation\": \"The M-score of 16.12 indicates a high risk of earnings manipulation, suggesting that the company may be artificially inflating its financial performance, which could lead to a significant correction in the future.\",\n  \"anomaly_analysis\": \"No significant anomalies were detected, but the lack of anomalies does not necessarily imply a clean bill of health, as some issues may not be immediately apparent or may be masked by other factors.\",\n  \"key_risks\": [\n    \"Earnings manipulation risk\",\n    \"Liquidity risk due to high liabilities\",\n    \"Volatility in revenue streams\"\n  ],\n  \"recommendations\": [\n    \"Conduct a thorough review of the company's financial statements and accounting practices to identify potential red flags\",\n    \"Assess the company's ability to generate cash flows and meet its debt obligations\",\n    \"Consider diversifying investments to mitigate potential losses\"\n  ]\n}\n```",
+        "risk_analysis": [],
+        "m_score_interpretation": "",
+        "anomaly_analysis": "",
+        "key_risks": [],
+        "recommendations": []
+      },
+      "llm_summary": "**Executive Summary for CFO: QT Imaging Holdings Inc. (CIK 1844505)**\n\nQT Imaging Holdings Inc. is operating at a high-risk level, posing significant financial instability and potential manipulation risks. Key drivers of this risk include high revenue volatility, liabilities exceeding assets, and negative profitability with a high earnings manipulation risk (M-score of 16.12). These factors indicate a high likelihood of earnings manipulation, liquidity issues, and unsustainable income generation.\n\nThe situation requires urgent attention, as the company's financial stability and ability to generate cash flows are compromised. To mitigate potential losses, we recommend immediate action:\n\n1. **Conduct a thorough review** of the company's financial statements and accounting practices to identify potential red flags.\n2. **Assess the company's ability** to generate cash flows and meet its debt obligations.\n3. **Consider diversifying investments** to mitigate potential losses.\n\nPrompt attention to these risks and recommendations is essential to ensure the company's financial health and prevent potential corrections in the future.",
+      "Intermediate_output": "**Executive Summary for CFO: QT Imaging Holdings Inc. (CIK 1844505)**\n\nQT Imaging Holdings Inc. is operating at a high-risk level, posing significant financial instability and potential manipulation risks. Key drivers of this risk include high revenue volatility, liabilities exceeding assets, and negative profitability with a high earnings manipulation risk (M-score of 16.12). These factors indicate a high likelihood of earnings manipulation, liquidity issues, and unsustainable income generation.\n\nThe situation requires urgent attention, as the company's financial stability and ability to generate cash flows are compromised. To mitigate potential losses, we recommend immediate action:\n\n1. **Conduct a thorough review** of the company's financial statements and accounting practices to identify potential red flags.\n2. **Assess the company's ability** to generate cash flows and meet its debt obligations.\n3. **Consider diversifying investments** to mitigate potential losses.\n\nPrompt attention to these risks and recommendations is essential to ensure the company's financial health and prevent potential corrections in the future.",
+      "base_insights": {
+        "financial_summary": {
+          "revenue": 955970.0,
+          "net_income": -4557406.0,
+          "profit_margin": -4.767310689661007,
+          "debt_to_equity": null
+        },
+        "risk_summary": {
+          "risk_score": 90,
+          "risk_level": "High Risk \ud83d\udd34",
+          "confidence_score": 65.0
+        },
+        "m_score": {
+          "value": 16.12,
+          "risk_level": "High Manipulation Risk \ud83d\udd34"
+        },
+        "key_drivers": [
+          "Negative profitability",
+          "Liabilities exceed assets",
+          "High revenue volatility",
+          "High earnings manipulation risk (M-score)"
+        ],
+        "anomaly": "No significant anomalies detected",
+        "interpretation": [
+          "Company is operating at a loss",
+          "Potential earnings manipulation risk detected"
+        ],
+        "recommendations": [
+          "Review financial stability before investment"
+        ]
+      },
+      "validation": {
+        "agreement": false,
+        "stability_score": 0.0,
+        "anomaly_strength": 0.0,
+        "confidence_score": 65.0,
+        "rule_band": "high",
+        "anomaly_band": "low",
+        "decision": "Financial Risk",
+        "m_score_band": "high",
+        "m_score_signal": 16.12
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "program_execution": {
+    "started_at": "2026-04-12T16:07:16.096404",
+    "completed_at": "2026-04-12T16:07:36.816124",
+    "total_scenarios": 4,
+    "successful_scenarios": 3,
+    "failed_scenarios": 1
+  },
+  "scenario_results": [
+    {
+      "run_id": "run1_normal",
+      "name": "Run 1: Clean Dataset",
+      "success": true
+    },
+    {
+      "run_id": "run2_stressed",
+      "name": "Run 2: High Risk Scenario",
+      "success": true
+    },
+    {
+      "run_id": "run3_bad_data",
+      "name": "Run 3: Bad Data (Expected Failure)",
+      "success": false
+    },
+    {
+      "run_id": "run4_manipulated_data",
+      "name": "Run 4: Manipulated Data (Advanced Analysis)",
+      "success": true
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2026-04-12T16:07:31.136144",
+    "message": "PIPELINE RUN: Run 3: Bad Data (Expected Failure)"
+  },
+  {
+    "timestamp": "2026-04-12T16:07:31.155705",
+    "message": "PIPELINE FAILED: Validation failed: {'status': 'failed', 'errors': [\"Missing columns: ['revenue', 'assets']\"], 'warnings': ['High duplicate rows']}"
+  },
+  {
+    "timestamp": "2026-04-12T16:07:31.156706",
+    "message": "Traceback (most recent call last):\n  File \"C:\\Users\\swapn\\OneDrive\\Desktop\\ISB\\Term_4\\Agentic_AI\\Assignement\\Final_Assignement\\sec-risk-intelligence-main (3)\\sec-risk-intelligence-main\\SKILL\\scripts\\main.py\", line 575, in run_scenario\n    raise Exception(f\"Validation failed: {validation_result}\")\nException: Validation failed: {'status': 'failed', 'errors': [\"Missing columns: ['revenue', 'assets']\"], 'warnings': ['High duplicate rows']}\n"
+  }
+]

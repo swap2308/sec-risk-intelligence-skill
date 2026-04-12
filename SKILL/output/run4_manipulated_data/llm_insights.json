@@ -1,0 +1,8 @@
+{
+  "executive_summary": "```json\n{\n  \"executive_summary\": \"QT Imaging Holdings Inc. (CIK 1844505) is operating at a significant financial loss with a high risk score, indicating potential instability and manipulation risks.\",\n  \"risk_analysis\": [\n    \"High revenue volatility poses a significant threat to the company's financial stability\",\n    \"Liabilities exceeding assets may lead to liquidity issues and increased debt burden\",\n    \"Negative profitability and high earnings manipulation risk (M-score) raise concerns about the company's ability to generate sustainable income\"\n  ],\n  \"m_score_interpretation\": \"The M-score of 16.12 indicates a high risk of earnings manipulation, suggesting that the company may be artificially inflating its financial performance, which could lead to a significant correction in the future.\",\n  \"anomaly_analysis\": \"No significant anomalies were detected, but the lack of anomalies does not necessarily imply a clean bill of health, as some issues may not be immediately apparent or may be masked by other factors.\",\n  \"key_risks\": [\n    \"Earnings manipulation risk\",\n    \"Liquidity risk due to high liabilities\",\n    \"Volatility in revenue streams\"\n  ],\n  \"recommendations\": [\n    \"Conduct a thorough review of the company's financial statements and accounting practices to identify potential red flags\",\n    \"Assess the company's ability to generate cash flows and meet its debt obligations\",\n    \"Consider diversifying investments to mitigate potential losses\"\n  ]\n}\n```",
+  "risk_analysis": [],
+  "m_score_interpretation": "",
+  "anomaly_analysis": "",
+  "key_risks": [],
+  "recommendations": []
+}

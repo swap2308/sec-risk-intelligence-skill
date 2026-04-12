@@ -1,0 +1,8 @@
+{
+  "executive_summary": "```\n{\n  \"executive_summary\": \"Matson, Inc. (CIK 3453) appears to be financially stable with a low risk score of 15, despite some indicators of earnings quality concerns.\",\n  \"risk_analysis\": [\n    \"Low risk level with a high confidence score of 100.0\",\n    \"Moderate earnings manipulation risk as indicated by the M-score\"\n  ],\n  \"m_score_interpretation\": \"The M-score of 2.11 indicates a moderate manipulation risk, suggesting that the company's earnings may be subject to some level of manipulation, which could impact the accuracy of financial statements.\",\n  \"anomaly_analysis\": \"No significant anomalies were detected, but some indicators of earnings quality concerns were identified, which may require further investigation.\",\n  \"key_risks\": [\n    \"Earnings manipulation risk\",\n    \"Potential inaccuracy of financial statements\"\n  ],\n  \"recommendations\": [\n    \"Conduct further analysis to investigate earnings quality concerns\",\n    \"Monitor the company's financial statements for any signs of manipulation\",\n    \"Consider verifying the company's financial stability through additional metrics and ratios\"\n  ]\n}\n```",
+  "risk_analysis": [],
+  "m_score_interpretation": "",
+  "anomaly_analysis": "",
+  "key_risks": [],
+  "recommendations": []
+}
