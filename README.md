@@ -22,6 +22,8 @@ The system is designed as an **LLM-compatible analytical skill** capable of gene
 ## How skill can be used
 
 Skill can be added to claude.ai ,in setting-> cababilities-> add skills
+### NOTE:
+The current solution is integrated with GROQ using llama-3.3-70b-versatile Model ,hence if we upload the same skill on claude.ai it will execute the skill.md using anthropic over riding Groq
 
 ---
 * **name: sec-risk-intelligence-skill**
