@@ -221,37 +221,6 @@ python scripts/main.py \
   --output-report outputs/report.html
 ```
 
----
-
-### Run Individual Stages
-
-#### Data Validation
-
-```bash
-python scripts/data_validation.py \
-  --input-data data/financial_table.csv \
-  --output outputs/validation.json
-```
-
-#### Analytics Model
-
-```bash
-python scripts/analytics_model.py \
-  --input-data data/financial_table.csv \
-  --output outputs/model_output.json
-```
-
-#### Report Generation (with LLM)
-
-```bash
-python scripts/report_generator.py \
-  --input-data data/financial_table.csv \
-  --model-output outputs/model_output.json \
-  --output outputs/report.html
-```
-
----
-
 ## Sample Output
 
 ### Risk Summary
